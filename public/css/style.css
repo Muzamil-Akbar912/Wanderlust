@@ -24,6 +24,10 @@ body {
     color: #222222 !important;
 }
 
+.nav-link:hover {
+    color: #fe424d !important;
+}
+
 /* footer */
 .f-info-links a {
     text-decoration: none;
@@ -60,12 +64,25 @@ body {
 .listing-card {
     border: none !important;
     margin-bottom: 2rem;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.card-image-top {
+.card-img-top {
     border-radius: 1rem !important;
     width: 100% !important;
+    height: 20rem;
     object-fit: cover !important;
+    transition: transform 0.3s ease;
+}
+
+.listing-card:hover .card-img-top {
+    transform: scale(1.03);
+}
+
+.listing-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
 }
 
 .card-body {
@@ -74,6 +91,17 @@ body {
 
 .card-text p {
     font-weight: 400 !important;
+}
+
+.listing-card .card-title {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 0.3rem;
+}
+
+.listing-card .card-text {
+    font-size: 0.95rem;
+    color: #555;
 }
 
 .listing-link {
@@ -116,3 +144,97 @@ body {
     padding-left: 0;
     padding-right: 0;
 }
+
+.search-btn {
+  background: #fe424d;
+  color: #fff;
+  border-radius: 25px;
+  padding: 0 1rem 0 1rem;
+}
+
+.search-btn:hover {
+  background: #fe424d;
+  color: #fff;
+}
+
+.search-btn i {
+  display: inline;
+  margin-right: 0.5rem;
+}
+
+.search-input {
+  border-radius: 25px;
+  padding: 0.5rem 3rem 0.5rem 3rem;
+  font-size: 1rem;
+}
+
+.navbar-brand {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #fe424d;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.navbar-brand:hover {
+  color: #fe424d;
+}
+
+.navbar-brand i {
+  font-size: 1.7rem;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+
+    /* Navbar */
+    .navbar {
+        height: auto;
+        padding: 0.8rem 0;
+    }
+
+    .navbar-nav {
+        align-items: center;
+    }
+
+    .navbar-nav .nav-link {
+        padding: 0.5rem 1rem;
+    }
+
+    /* Search */
+    .navbar-nav form {
+        width: 100%;
+        padding: 0.5rem 1rem;
+    }
+
+    .search-input {
+        width: 100%;
+        padding: 0.5rem 1rem;
+    }
+
+    .search-btn {
+        width: 100%;
+        margin-top: 0.5rem;
+    }
+
+    /* Listing Cards */
+    .listing-card {
+        margin-bottom: 1.5rem;
+    }
+
+    .card-img-top {
+        height: 18rem;
+    }
+
+    /* Show Page */
+    .show-img {
+        height: 25vh;
+    }
+
+    .btns {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+}
+
