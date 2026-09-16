@@ -1,3 +1,7 @@
+/* =========================
+   Global
+========================= */
+
 body {
     font-family: "Plus Jakarta Sans", sans-serif !important;
     display: flex;
@@ -9,7 +13,11 @@ body {
     flex: 1;
 }
 
-/* Navbar */
+
+/* =========================
+   Navbar
+========================= */
+
 .navbar {
     height: 5rem;
     background: white;
@@ -28,17 +36,68 @@ body {
     color: #fe424d !important;
 }
 
-/* footer */
+.navbar-brand {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #fe424d;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.navbar-brand:hover {
+    color: #fe424d;
+}
+
+.navbar-brand i {
+    font-size: 1.7rem;
+}
+
+
+/* =========================
+   Search
+========================= */
+
+.search-btn {
+    background-color: #fe424d !important;
+    color: #fff !important;
+    border-radius: 25px;
+    padding: 0 1rem;
+}
+
+.search-btn:hover {
+    background-color: #e63946 !important;
+    color: #fff !important;
+}
+
+.search-btn i {
+    display: inline;
+    margin-right: 0.5rem;
+}
+
+.search-input {
+    border-radius: 25px;
+    padding: 0.5rem 3rem;
+    font-size: 1rem;
+}
+
+
+/* =========================
+   Footer
+========================= */
+
 .f-info-links a {
     text-decoration: none;
     color: #222222;
-} 
+}
 
 .f-info-links a:hover {
     text-decoration: underline;
 }
 
-.f-info-links, .f-info-socials, .f-info-brand {
+.f-info-links,
+.f-info-socials,
+.f-info-brand {
     width: 100%;
     display: flex;
     align-items: center;
@@ -60,7 +119,11 @@ body {
     align-items: space-evenly;
 }
 
-/* Cards */
+
+/* =========================
+   Listing Cards
+========================= */
+
 .listing-card {
     border: none !important;
     margin-bottom: 2rem;
@@ -102,21 +165,22 @@ body {
 .listing-card .card-text {
     font-size: 0.95rem;
     color: #555;
+    line-height: 1.5;
 }
 
 .listing-card .card-text b {
     color: #222;
 }
 
-.listing-card .card-text {
-    line-height: 1.5;
-}
-
 .listing-link {
     text-decoration: none;
 }
 
-/* Card-effect */
+
+/* =========================
+   Card Overlay
+========================= */
+
 .card-img-overlay {
     opacity: 0;
 }
@@ -127,126 +191,147 @@ body {
 }
 
 
-/* New Page */
+/* =========================
+   New Page
+========================= */
+
 .add-btn {
     background: #fe424d !important;
     border: none !important;
 }
 
-/* Edit Page */
+
+/* =========================
+   Edit Page
+========================= */
+
 .edit-btn {
     background-color: #fe424d !important;
     border: none !important;
 }
 
-/* Show Page */
+
+/* =========================
+   Show Page
+========================= */
+
 .show-img {
     height: 30vh;
+}
+
+.show-card {
+    padding-left: 0;
+    padding-right: 0;
+    border-radius: 1.2rem !important;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.12);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.show-owner {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 1rem;
+}
+
+.show-description {
+    color: #555;
+    line-height: 1.7;
+    margin-bottom: 1.2rem;
+}
+
+.show-price {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #222;
+    margin-bottom: 1.5rem;
+}
+
+.show-price span {
+    font-size: 0.9rem;
+    font-weight: 400;
+    color: #777;
+}
+
+.show-details {
+    border-top: 1px solid #eee;
+    padding-top: 1rem;
+}
+
+.show-details p {
+    margin-bottom: 0.8rem;
+    color: #555;
+}
+
+.show-details i {
+    width: 25px;
+    color: #fe424d;
+}
+
+.show-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.18);
+}
+
+.show-card .card-body {
+    padding: 1.5rem;
+}
+
+.show-card .card-text {
+    margin-bottom: 0.8rem;
+    color: #555;
+}
+
+.show-card .card-text b {
+    color: #222;
 }
 
 .btns {
     display: flex;
 }
 
-.show-card {
-    padding-left: 0;
-    padding-right: 0;
+.edit-btn,
+.delete-btn {
+    padding: 0.6rem 1.5rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
 }
 
-.search-btn {
-  background: #fe424d;
-  color: #fff;
-  border-radius: 25px;
-  padding: 0 1rem 0 1rem;
+.edit-btn {
+    background-color: #fe424d !important;
+    color: white !important;
+    border: none !important;
 }
 
-.search-btn:hover {
-  background: #fe424d;
-  color: #fff;
+.edit-btn:hover {
+    background-color: #e63946 !important;
+    transform: translateY(-2px);
 }
 
-.search-btn i {
-  display: inline;
-  margin-right: 0.5rem;
+.delete-btn {
+    background-color: #222 !important;
+    color: white !important;
+    border: none !important;
 }
 
-.search-input {
-  border-radius: 25px;
-  padding: 0.5rem 3rem 0.5rem 3rem;
-  font-size: 1rem;
+.delete-btn:hover {
+    background-color: #000 !important;
+    transform: translateY(-2px);
 }
 
-.navbar-brand {
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: #fe424d;
-  display: flex;
-  align-items: center;
-  gap: 0.4rem;
+.btns {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+    margin-bottom: 1.5rem;
 }
 
-.navbar-brand:hover {
-  color: #fe424d;
-}
 
-.navbar-brand i {
-  font-size: 1.7rem;
-}
+/* =========================
+   Filters
+========================= */
 
-/* Mobile Responsive */
-@media (max-width: 768px) {
-
-    /* Navbar */
-    .navbar {
-        height: auto;
-        padding: 0.8rem 0;
-    }
-
-    .navbar-nav {
-        align-items: center;
-    }
-
-    .navbar-nav .nav-link {
-        padding: 0.5rem 1rem;
-    }
-
-    /* Search */
-    .navbar-nav form {
-        width: 100%;
-        padding: 0.5rem 1rem;
-    }
-
-    .search-input {
-        width: 100%;
-        padding: 0.5rem 1rem;
-    }
-
-    .search-btn {
-        width: 100%;
-        margin-top: 0.5rem;
-    }
-
-    /* Listing Cards */
-    .listing-card {
-        margin-bottom: 1.5rem;
-    }
-
-    .card-img-top {
-        height: 18rem;
-    }
-
-    /* Show Page */
-    .show-img {
-        height: 25vh;
-    }
-
-    .btns {
-        flex-direction: column;
-        gap: 0.5rem;
-    }
-}
-
-/* Filters */
 #filters {
     display: flex;
     flex-wrap: wrap;
@@ -271,7 +356,11 @@ body {
     font-size: 0.8rem;
 }
 
-/* Tax Toggle */
+
+/* =========================
+   Tax Toggle
+========================= */
+
 .tax-info {
     display: none;
 }
@@ -286,8 +375,109 @@ body {
     align-items: center;
 }
 
-/* Filters Responsive */
-@media (max-width: 778px) {
+
+/* =========================
+   Mobile Responsive
+========================= */
+
+@media (max-width: 768px) {
+
+    /* Navbar */
+
+    .navbar {
+        height: auto;
+        padding: 0.8rem 0;
+    }
+
+    .navbar-nav {
+        align-items: center;
+    }
+
+    .navbar-nav .nav-link {
+        padding: 0.5rem 1rem;
+    }
+
+    .navbar-collapse {
+        padding-top: 1rem;
+    }
+
+    .navbar-brand {
+        font-size: 1.3rem;
+    }
+
+    .navbar-brand i {
+        font-size: 1.5rem;
+    }
+
+
+    /* Search */
+
+    .navbar-nav form {
+        width: 100%;
+        padding: 0.5rem 1rem;
+    }
+
+    .search-input {
+        width: 100%;
+        padding: 0.5rem 1rem;
+    }
+
+    .search-btn {
+        width: 100%;
+        margin-top: 0.5rem;
+    }
+
+
+    /* Listing Cards */
+
+    .listing-card {
+        margin-bottom: 1.5rem;
+    }
+
+    .card-img-top {
+        height: 15rem;
+    }
+
+    .listing-card .card-body {
+        padding: 0.5rem 0.2rem;
+    }
+
+    .listing-card .card-title {
+        font-size: 1rem;
+    }
+
+    .listing-card .card-text {
+        font-size: 0.9rem;
+    }
+
+
+    /* Show Page */
+
+    .show-img {
+        height: 25vh;
+    }
+
+    .show-card {
+        width: 100%;
+        margin-left: 0;
+    }
+
+    .show-card .card-body {
+        padding: 1.2rem;
+    }
+
+    .btns {
+        flex-direction: column;
+        gap: 0.7rem;
+    }
+
+    .btns .edit-btn,
+    .btns .delete-btn {
+        width: 100%;
+    }
+
+
+    /* Filters */
 
     #filters {
         flex-wrap: nowrap;
@@ -304,5 +494,26 @@ body {
     .tax-toggle {
         flex: 0 0 auto;
         margin-top: 1rem;
+        margin-left: 0.5rem;
+    }
+
+    /* Footer */
+    .f-info {
+        height: auto;
+        padding: 1.5rem 0;
+        gap: 1rem;
+    }
+
+    .f-info-socials {
+        gap: 0.5rem;
+    }
+
+    .f-info-socials i {
+        margin-right: 0.5rem;
+    }
+
+    .form-container {
+        width: 100%;
+        margin-left: 0;
     }
 }
