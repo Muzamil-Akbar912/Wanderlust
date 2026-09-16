@@ -3,7 +3,22 @@ const Listing = require("../models/listing");
 
 // Index route..
 module.exports.index = async (req, res) => {
-    const allListings = await Listing.find({});
+    const q = req.query.q?.trim();
+
+    let allListings;
+
+    if (q) {
+        allListings = await Listing.find({
+            $or: [
+                { title: { $regex: q, $options: "i" } },
+                { location: { $regex: q, $options: "i" } },
+                { country: { $regex: q, $options: "i" } }
+            ]
+        });
+    } else {
+        allListings = await Listing.find({});
+    }
+
     res.render("listings/index.ejs", { allListings });
 };
 
