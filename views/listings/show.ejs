@@ -25,6 +25,19 @@
                 <span>/ night</span>
             </h4>
 
+            <% if (gst) { %>
+                <p class="show-gst">
+                    + 11% GST:
+                    &#8377 <%= (listing.price * 0.11).toLocaleString("en-IN") %>
+                </p>
+            
+                <h4 class="show-total">
+                    Total:
+                    &#8377 <%= (listing.price * 1.11).toLocaleString("en-IN") %>
+                    <span>/ night</span>
+                </h4>
+            <% } %>   
+
             <div class="show-details">
 
                 <p>

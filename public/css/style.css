@@ -128,7 +128,8 @@ body {
     border: none !important;
     margin-bottom: 2rem;
     overflow: hidden;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background: transparent;
+    transition: transform 0.3s ease;
 }
 
 .card-img-top {
@@ -136,11 +137,11 @@ body {
     width: 100% !important;
     height: 20rem;
     object-fit: cover !important;
-    transition: transform 0.3s ease;
+    transition: transform 0.4s ease;
 }
 
 .listing-card:hover .card-img-top {
-    transform: scale(1.03);
+    transform: scale(1.04);
 }
 
 .listing-card:hover {
@@ -149,7 +150,7 @@ body {
 }
 
 .card-body {
-    padding: 0;
+    padding: 0.4rem 0.2rem;
 }
 
 .card-text p {
@@ -157,9 +158,11 @@ body {
 }
 
 .listing-card .card-title {
-    font-size: 1rem;
-    font-weight: 600;
-    margin-bottom: 0.3rem;
+    display: inline-block;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #222;
+    margin-bottom: 0.25rem;
 }
 
 .listing-card .card-text {
@@ -168,7 +171,21 @@ body {
     line-height: 1.5;
 }
 
+.card-location {
+    display: block;
+    font-size: 0.9rem;
+    color: #777;
+    margin-top: 0.2rem;
+    margin-bottom: 0.5rem;
+}
+
 .listing-card .card-text b {
+    color: #222;
+}
+
+.listing-card .card-price {
+    font-size: 1rem;
+    font-weight: 700;
     color: #222;
 }
 
@@ -183,11 +200,12 @@ body {
 
 .card-img-overlay {
     opacity: 0;
+    transition: opacity 0.3s ease;
 }
 
 .card-img-overlay:hover {
-    opacity: 0.3;
-    background: white;
+    opacity: 0.12;
+    background: #000;
 }
 
 
@@ -284,6 +302,25 @@ body {
 
 .show-card .card-text b {
     color: #222;
+}
+
+.show-gst {
+    color: #777;
+    font-size: 0.95rem;
+    margin-bottom: 0.5rem;
+}
+
+.show-total {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #222;
+    margin-bottom: 1.5rem;
+}
+
+.show-total span {
+    font-size: 0.9rem;
+    font-weight: 400;
+    color: #777;
 }
 
 .btns {
@@ -435,7 +472,7 @@ body {
     }
 
     .card-img-top {
-        height: 15rem;
+        height: 13rem;
     }
 
     .listing-card .card-body {
