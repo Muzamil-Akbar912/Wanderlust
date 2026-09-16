@@ -43,14 +43,20 @@ body {
     display: flex;
     align-items: center;
     gap: 0.4rem;
+    transition: transform 0.3s ease;
 }
 
 .navbar-brand:hover {
     color: #fe424d;
+    transform: scale(1.03);
 }
 
 .navbar-brand i {
     font-size: 1.7rem;
+}
+
+.navbar-brand span {
+    letter-spacing: 0.3px;
 }
 
 
@@ -61,13 +67,16 @@ body {
 .search-btn {
     background-color: #fe424d !important;
     color: #fff !important;
+    border: none !important;
     border-radius: 25px;
-    padding: 0 1rem;
+    padding: 0.5rem 1.2rem;
+    transition: all 0.3s ease;
 }
 
 .search-btn:hover {
     background-color: #e63946 !important;
     color: #fff !important;
+    transform: translateY(-1px);
 }
 
 .search-btn i {
@@ -76,9 +85,17 @@ body {
 }
 
 .search-input {
+    border: 1px solid #ddd;
     border-radius: 25px;
-    padding: 0.5rem 3rem;
+    padding: 0.5rem 1.2rem;
     font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.search-input:focus {
+    border-color: #fe424d;
+    box-shadow: 0 0 0 0.2rem rgba(254, 66, 77, 0.12);
+    outline: none;
 }
 
 
@@ -165,72 +182,127 @@ body {
 ========================= */
 
 .listing-card {
+
     border: none !important;
+
     margin-bottom: 2rem;
+
     overflow: hidden;
+
     background: transparent;
-    transition: transform 0.3s ease;
+
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
 }
 
 .card-img-top {
+
     border-radius: 1rem !important;
+
     width: 100% !important;
+
     height: 20rem;
+
     object-fit: cover !important;
+
     transition: transform 0.4s ease;
+
 }
 
 .listing-card:hover .card-img-top {
+
     transform: scale(1.04);
+
 }
 
 .listing-card:hover {
+
     transform: translateY(-5px);
+
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+
 }
 
 .card-body {
-    padding: 0.4rem 0.2rem;
+
+    padding: 0.6rem 0.2rem;
+
 }
 
 .card-text p {
+
     font-weight: 400 !important;
+
 }
 
 .listing-card .card-title {
+
     display: inline-block;
+
     font-size: 1.05rem;
+
     font-weight: 700;
+
     color: #222;
+
     margin-bottom: 0.25rem;
+
 }
 
 .listing-card .card-text {
+
     font-size: 0.95rem;
+
     color: #555;
+
     line-height: 1.5;
+
+    margin-bottom: 0;
+
 }
 
 .card-location {
+
     display: block;
+
     font-size: 0.9rem;
+
     color: #777;
+
     margin-top: 0.2rem;
+
     margin-bottom: 0.5rem;
+
 }
 
 .listing-card .card-text b {
+
     color: #222;
+
 }
 
 .listing-card .card-price {
+
     font-size: 1rem;
+
     font-weight: 700;
+
     color: #222;
+
 }
 
 .listing-link {
+
     text-decoration: none;
+
+    color: inherit;
+
+}
+
+.listing-link:hover {
+
+    color: inherit;
+
 }
 
 
@@ -241,9 +313,10 @@ body {
 .card-img-overlay {
     opacity: 0;
     transition: opacity 0.3s ease;
+    border-radius: 1rem;
 }
 
-.card-img-overlay:hover {
+.listing-card:hover .card-img-overlay {
     opacity: 0.12;
     background: #000;
 }
@@ -463,15 +536,16 @@ body {
 
     .navbar {
         height: auto;
-        padding: 0.8rem 0;
+        padding: 0.7rem 1rem;
     }
 
     .navbar-nav {
-        align-items: center;
+        align-items: flex-start;
+        width: 100%;
     }
 
     .navbar-nav .nav-link {
-        padding: 0.5rem 1rem;
+        padding: 0.6rem 0;
     }
 
     .navbar-collapse {
@@ -491,17 +565,16 @@ body {
 
     .navbar-nav form {
         width: 100%;
-        padding: 0.5rem 1rem;
+        padding: 0.5rem 0 1rem;
     }
 
     .search-input {
         width: 100%;
-        padding: 0.5rem 1rem;
+        
     }
 
     .search-btn {
-        width: 100%;
-        margin-top: 0.5rem;
+        white-space: nowrap;
     }
 
 
@@ -527,6 +600,15 @@ body {
         font-size: 0.9rem;
     }
 
+    .card-location {
+        font-size: 0.85rem;
+        margin-top: 0.15rem;
+        margin-bottom: 0.4rem;
+    }
+
+    .listing-card .card-price {
+        font-size: 0.95rem;
+    }
 
     /* Show Page */
 
