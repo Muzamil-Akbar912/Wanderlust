@@ -104,6 +104,14 @@ body {
     color: #555;
 }
 
+.listing-card .card-text b {
+    color: #222;
+}
+
+.listing-card .card-text {
+    line-height: 1.5;
+}
+
 .listing-link {
     text-decoration: none;
 }
