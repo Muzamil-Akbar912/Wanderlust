@@ -7,9 +7,17 @@ const userSchema = new Schema({
         type: String,
         required: true,
     },
+    wishlist: [
+        {
+            type: Schema.Types.ObjectId,
+            ref: "Listing"
+        }
+    ],
+
 });
 
 // yeh username, password, hashing, salting and kuch methods b automatically add karta hai.....
+
 userSchema.plugin(passportLocalMongoose);
 
 module.exports = mongoose.model("User", userSchema);

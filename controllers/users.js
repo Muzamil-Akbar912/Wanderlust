@@ -49,3 +49,21 @@ module.exports.logout = (req, res, next) => {
         res.redirect("/listings");
     });
 };
+
+// Add listing to wishlist...
+
+module.exports.addToWishlist = async (req, res) => {
+
+    const { listingId } = req.params;
+
+    const user = await User.findById(req.user._id);
+
+    if (!user.wishlist.includes(listingId)) {
+        user.wishlist.push(listingId);
+        await user.save();
+    }
+
+    req.flash("success", "Added to wishlist ❤️");
+
+    res.redirect(`/listings/${listingId}`);
+};
