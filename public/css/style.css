@@ -311,14 +311,13 @@ body {
 ========================= */
 
 .card-img-overlay {
-    opacity: 0;
-    transition: opacity 0.3s ease;
+    opacity: 1;
     border-radius: 1rem;
+    pointer-events: none;
 }
 
-.listing-card:hover .card-img-overlay {
-    opacity: 0.12;
-    background: #000;
+.wishlist-btn {
+    pointer-events: auto;
 }
 
 
@@ -686,4 +685,49 @@ body {
         width: 100%;
         margin-left: 0;
     }
+}
+
+/* Wishlist */
+
+.image-container {
+    position: relative;
+}
+
+.wishlist-container {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    z-index: 100;
+}
+
+.wishlist-container form {
+    margin: 0;
+}
+
+.wishlist-btn {
+    position: static;
+    color: #222;
+    background: white;
+    border: none;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 1.3rem;
+    cursor: pointer;
+
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease;
+}
+
+.wishlist-btn:hover {
+    transform: scale(1.1);
+}
+
+.wishlist-btn.wishlisted {
+    color: #fe424d;
 }

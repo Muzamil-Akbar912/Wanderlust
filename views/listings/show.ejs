@@ -16,6 +16,28 @@
                 Owned by <i><%= listing.owner.username %></i>
             </h5>
 
+            <% if (currUser) { %>
+
+                <% const isWishlisted = currUser.wishlist.some(
+                    id => id.toString() === listing._id.toString()
+                ); %>
+
+                <% if (isWishlisted) { %>
+                    <form method="POST" action="/wishlist/<%= listing._id %>?_method=DELETE">
+                        <button type="submit" class="wishlist-btn wishlisted" title="Remove from Wishlist">
+                            <i class="fa-solid fa-heart"></i>
+                        </button>
+                    </form>
+
+                <% } else { %>
+                      <form method="POST" action="/wishlist/<%= listing._id %>">
+                        <button type="submit" class="wishlist-btn" title="Add to Wishlist">
+                            <i class="fa-regular fa-heart"></i>
+                        </button>
+                      </form>
+                    <% } %>
+                <% } %>
+
             <p class="show-description">
                 <%= listing.description %>
             </p>

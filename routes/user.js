@@ -32,4 +32,10 @@ router.post(
     userController.addToWishlist
 );
 
+router.delete(
+    '/wishlist/:listingId',
+    isLoggedIn,
+    userController.removeFromWishlist
+);
+
 module.exports = router;

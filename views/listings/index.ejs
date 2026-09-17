@@ -64,8 +64,17 @@
 
     <div class="tax-toggle">
         <div class="form-check-reverse form-switch">
-            <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
-            <label class="form-check-label" for="flexSwitchCheckDefault">
+            <input 
+                class="form-check-input" 
+                type="checkbox" 
+                role="switch" 
+                id="flexSwitchCheckDefault"
+            >
+
+            <label 
+                class="form-check-label" 
+                for="flexSwitchCheckDefault"
+            >
                 Display total after taxes
             </label>
         </div>
@@ -77,10 +86,13 @@
 <% if (allListings.length === 0) { %>
 
     <div class="text-center mt-5">
+
         <h3>No listings found</h3>
+
         <p class="text-muted">
             Try searching for another destination.
         </p>
+
     </div>
 
 <% } else { %>
@@ -90,47 +102,137 @@
 
     <% for(let listing of allListings) { %>
 
-        <a 
-            href="/listings/<%= listing._id %>" 
-            class="listing-link col"
-        >    
+        <div class="col">
 
             <div class="card listing-card">
 
-                <img 
-                    src="<%= listing.image.url %>" 
-                    class="card-img-top" 
-                    alt="listing_image"
-                >
+                <!-- Image + Wishlist -->
+                <div class="image-container">
 
-                <div class="card-img-overlay"></div>
+                    <!-- Image is clickable -->
+                    <a 
+                        href="/listings/<%= listing._id %>" 
+                        class="listing-link"
+                    >
 
-                <div class="card-body">
+                        <img 
+                            src="<%= listing.image.url %>" 
+                            class="card-img-top" 
+                            alt="listing_image"
+                        >
 
-                    <p class="card-text">
+                    </a>
 
-                        <b class="card-title"><%= listing.title %></b>
-                        
-                        <span class="card-location">
-                            <%= listing.location %>, <%= listing.country %>
-                        </span>
-                        <span class="card-price" data-price="<%= listing.price %>">
-                            &#8377 <%= listing.price.toLocaleString("en-IN") %>
-                        </span>
-                        <span>/ night</span>
-                        <i class="tax-info">
-                            &nbsp; &nbsp; +18% GST
-                        </i>
 
-                    </p>
+                    <!-- Wishlist Heart -->
+                    <div class="wishlist-container">
+
+                        <% if(currUser) { %>
+
+                            <% const isWishlisted = currUser.wishlist.some(
+                                id => id.toString() === listing._id.toString()
+                            ); %>
+
+
+                            <% if(isWishlisted) { %>
+
+                                <!-- Remove from Wishlist -->
+
+                                <form 
+                                    method="POST" 
+                                    action="/wishlist/<%= listing._id %>?_method=DELETE"
+                                >
+
+                                    <button 
+                                        type="submit" 
+                                        class="wishlist-btn wishlisted"
+                                        title="Remove from Wishlist"
+                                    >
+
+                                        <i class="fa-solid fa-heart"></i>
+
+                                    </button>
+
+                                </form>
+
+
+                            <% } else { %>
+
+                                <!-- Add to Wishlist -->
+
+                                <form 
+                                    method="POST" 
+                                    action="/wishlist/<%= listing._id %>"
+                                >
+
+                                    <button 
+                                        type="submit" 
+                                        class="wishlist-btn"
+                                        title="Add to Wishlist"
+                                    >
+
+                                        <i class="fa-regular fa-heart"></i>
+
+                                    </button>
+
+                                </form>
+
+                            <% } %>
+
+                        <% } %>
+
+                    </div>
 
                 </div>
 
+
+                <!-- Listing Details -->
+                <a 
+                    href="/listings/<%= listing._id %>" 
+                    class="listing-link"
+                >
+
+                    <div class="card-body">
+
+                        <p class="card-text">
+
+                            <b class="card-title">
+                                <%= listing.title %>
+                            </b>
+
+
+                            <span class="card-location">
+                                <%= listing.location %>, 
+                                <%= listing.country %>
+                            </span>
+
+
+                            <span 
+                                class="card-price" 
+                                data-price="<%= listing.price %>"
+                            >
+                                &#8377 <%= listing.price.toLocaleString("en-IN") %>
+                            </span>
+
+                            <span>/ night</span>
+
+
+                            <i class="tax-info">
+                                &nbsp; &nbsp; +18% GST
+                            </i>
+
+                        </p>
+
+                    </div>
+
+                </a>
+
             </div>
 
-        </a>
+        </div>
 
     <% } %>
 
 </div>
+
 <% } %>

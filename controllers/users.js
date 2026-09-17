@@ -65,5 +65,24 @@ module.exports.addToWishlist = async (req, res) => {
 
     req.flash("success", "Added to wishlist ❤️");
 
-    res.redirect(`/listings/${listingId}`);
+    res.redirect(req.get("Referer") || `/listings/${listingId}`);
+};
+
+// Remove listing from wishlist...
+
+module.exports.removeFromWishlist = async (req, res) => {
+
+    const { listingId } = req.params;
+
+    const user = await User.findById(req.user._id);
+
+    user.wishlist = user.wishlist.filter(
+        id => id.toString() !== listingId
+    );
+
+    await user.save();
+
+    req.flash("success", "Removed from wishlist");
+
+    res.redirect(req.get("Referer") || `/listings/${listingId}`);
 };
