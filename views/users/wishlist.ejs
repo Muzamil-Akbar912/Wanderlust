@@ -1,0 +1,141 @@
+<% layout("/layouts/boilerplate") %>
+
+<div class="container mt-4 mb-5">
+
+    <!-- Wishlist Header -->
+    <div class="wishlist-header">
+
+        <div>
+            <h2>My Wishlist</h2>
+
+            <p>
+                Save your favourite stays and find them anytime.
+            </p>
+        </div>
+
+        <span class="wishlist-count">
+            <%= wishlist.length %> saved
+        </span>
+
+    </div>
+
+
+    <% if (wishlist.length === 0) { %>
+
+        <!-- Empty Wishlist -->
+
+        <div class="wishlist-empty text-center">
+
+            <div class="wishlist-empty-icon">
+                <i class="fa-regular fa-heart"></i>
+            </div>
+
+            <h3>Your wishlist is empty</h3>
+
+            <p class="text-muted">
+                Start exploring and save your favourite stays here.
+            </p>
+
+            <a href="/listings" class="btn btn-dark wishlist-explore-btn">
+                <i class="fa-solid fa-compass"></i>
+                Explore Listings
+            </a>
+
+        </div>
+
+
+    <% } else { %>
+
+        <!-- Wishlist Listings -->
+
+        <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1">
+
+            <% for (let listing of wishlist) { %>
+
+                <div class="col mb-4">
+
+                    <div class="card listing-card">
+
+                        <!-- Image -->
+                        <div class="image-container">
+
+                            <a
+                                href="/listings/<%= listing._id %>"
+                                class="listing-link"
+                            >
+
+                                <img
+                                    src="<%= listing.image.url %>"
+                                    class="card-img-top"
+                                    alt="<%= listing.title %>"
+                                >
+
+                            </a>
+
+
+                            <!-- Remove from Wishlist -->
+                            <div class="wishlist-container">
+
+                                <form
+                                    method="POST"
+                                    action="/wishlist/<%= listing._id %>?_method=DELETE"
+                                >
+
+                                    <button
+                                        type="submit"
+                                        class="wishlist-btn wishlisted"
+                                        title="Remove from Wishlist"
+                                    >
+
+                                        <i class="fa-solid fa-heart"></i>
+
+                                    </button>
+
+                                </form>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- Listing Details -->
+                        <a
+                            href="/listings/<%= listing._id %>"
+                            class="listing-link"
+                        >
+
+                            <div class="card-body">
+
+                                <h5 class="card-title">
+                                    <%= listing.title %>
+                                </h5>
+
+                                <p class="card-location">
+                                    <i class="fa-solid fa-location-dot"></i>
+                                    <%= listing.location %>,
+                                    <%= listing.country %>
+                                </p>
+
+                                <p class="card-price">
+
+                                    ₹ <%= listing.price.toLocaleString("en-IN") %>
+
+                                    <span>/ night</span>
+
+                                </p>
+
+                            </div>
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            <% } %>
+
+        </div>
+
+    <% } %>
+
+</div>

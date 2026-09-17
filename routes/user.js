@@ -12,7 +12,6 @@ router
     .get(userController.renderSignupForm)
     .post(wrapAsync(userController.signup));
 
-
 router
     .route('/login')
     .get(userController.renderLoginForm)
@@ -26,6 +25,14 @@ router
     );
 
 router.get('/logout', userController.logout);
+
+// Wishlist page
+router.get(
+    '/wishlist',
+    isLoggedIn,
+    userController.renderWishlist
+);
+
 router.post(
     '/wishlist/:listingId',
     isLoggedIn,
